@@ -1,0 +1,729 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&display=swap");
+
+// $colors: rgb(211, 211, 211),rgba(233, 233, 233),rgba(216, 216, 216),rgba(250, 250, 250),rgba(204, 204, 204),rgba(240, 240, 240);
+
+@mixin displayView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --primary-color: #86c232;
+  --sec-color: #c7f18c;
+  --bg-light: #fff;
+  --bg-dark-one: #222629;
+  --bg-dark-two: #474b4f;
+  --bg-dark-three: #6b6e70;
+  --color1: rgb(220, 220, 220);
+  --color2: rgb(233, 233, 233);
+  --color3: rgb(216, 216, 216);
+  --color4: rgb(250, 250, 250);
+  --color5: rgb(204, 204, 204);
+  --color6: rgb(240, 240, 240);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+  height: 100%;
+
+  // .pattern{
+  //     height: 50rem;
+  //     width: 50rem;
+  //     position: absolute;
+  //     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5'  stroke-width='1' stroke='none' fill='hsla(0, 0%, 90%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(-80,-72)' fill='url(%23a)'/></svg>");
+  // }
+
+  header {
+    nav {
+      width: 100%;
+      height: 8rem;
+      //border: 2px solid red;
+      @include displayView;
+      justify-content: space-around;
+
+      .logo-div {
+        width: 20%;
+        height: inherit;
+        @include displayView;
+        justify-content: space-between;
+        //border: 2px solid blue;
+        font-size: 2.5rem;
+        font-weight: 600;
+
+        @media only screen and (max-width: 768px){
+          
+        }
+      }
+
+      .links-div {
+        width: 60%;
+        height: inherit;
+        //border: 2px solid blue;
+        @include displayView;
+
+        @media only screen and (max-width: 768px){
+          visibility: hidden;
+        }
+        
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+        }
+
+        @media only screen and (min-width: 1025px) and (max-width: 1200px){
+
+        }
+
+        @media only screen and (min-width: 1201px){
+
+        }
+
+        ul {
+          @include displayView;
+          justify-content: space-around;
+          //border: 2px solid red;
+          width: 90%;
+          font-size: 2rem;
+
+          li {
+            margin-top: 0.3rem;
+            position: relative;
+            //overflow: hidden;
+
+            &:nth-child(5) {
+              position: relative;
+              background-color: rgb(240, 240, 240);
+              padding: 0.8rem 2rem;
+              border-radius: 0.3rem;
+              cursor: pointer;
+              overflow: hidden;
+              height: 2rem;
+              width: 5rem;
+
+              &::before {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                content: "More>";
+                padding: 0.7rem 2rem;
+                background-color: rgb(205, 205, 205);
+                width: inherit;
+                height: inherit;
+                border-radius: 0.3rem;
+                cursor: pointer;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+              }
+
+              &:hover::before {
+                left: 0%;
+                opacity: 1;
+              }
+            }
+
+            [type="search"] {
+              height: 3.5rem;
+              width: 20rem;
+              padding: 1rem;
+              font-family: "Josefin Sans", sans-serif;
+              outline: none;
+              border: none;
+              border-radius: 0.4rem;
+              background-color: rgb(240, 240, 240);
+              font-size: 1.7rem;
+              transition: all 0.3s ease-in-out;
+
+              &:focus {
+                border: 0.1rem solid var(--primary-color);
+                background-color: var(--bg-light);
+              }
+            }
+
+            &:last-child {
+              position: relative;
+            }
+
+            .icon {
+              position: absolute;
+              content: "";
+              top: -0.5rem;
+              right: -1rem;
+              background-color: var(--primary-color);
+              width: 2.6rem;
+              height: 2.6rem;
+              padding: 1rem;
+              border-radius: 50%;
+              cursor: pointer;
+              @include displayView;
+
+              span {
+                p {
+                  color: #000;
+                  font-size: 3rem;
+                  font-weight: 600;
+                }
+              }
+            }
+
+            &::before {
+              position: absolute;
+              content: "";
+              width: 50%;
+              height: 0.6rem;
+              background-color: var(--primary-color);
+              border-radius: 8rem;
+              bottom: 0.5rem;
+              z-index: -1;
+              left: -50%;
+              transition: all 0.2s ease-in-out;
+              opacity: 0;
+            }
+
+            &:hover::before {
+              left: 0%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5'  stroke-width='1' stroke='none' fill='hsla(0, 0%, 90%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(-80,-72)' fill='url(%23a)'/></svg>");
+      width: 35rem;
+      height: 25rem;
+      top: 5%;
+      left: 0;
+      z-index: -1;
+
+      @media only screen and (max-width: 768px){
+        width: 32rem;
+        height: 20rem;
+        top: 10%;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5'  stroke-width='1' stroke='none' fill='hsla(85, 56%, 83%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(-80,-72)' fill='url(%23a)'/></svg>");
+      width: 25rem;
+      height: 20rem;
+      top: 33%;
+      right: 0%;
+      z-index: -1;
+
+      @media only screen and (max-width: 768px){
+        height: 12rem;
+        top: 48%;
+        width: 18rem;
+      }
+    }
+
+    .main-div {
+      @include displayView;
+
+      .main-left {
+        width: 40%;
+        padding: 3rem 8rem;
+        position: relative;
+
+        h1 {
+          font-size: 6.2rem;
+          line-height: 7rem;
+
+          @media only screen and (max-width: 768px){
+            //text-align: center;
+            font-size: 7rem;
+            margin-left:3.5rem;
+            margin-top: 0rem;
+          }
+
+          span {
+            position: relative;
+
+            &::before {
+              position: absolute;
+              content: "";
+              width: 14.5rem;
+              height: 1.2rem;
+              background-color: var(--primary-color);
+              border-radius: 0.5rem;
+              top: 3.2rem;
+              z-index: -1;
+
+              @media only screen and (max-width: 768px){
+                top: 4rem;
+                left:-0.5rem;
+              }
+            }
+          }
+        }
+
+        button {
+          position: relative;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          font-size: 2.5rem;
+          font-weight: 600;
+          font-family: "Josefin Sans", sans-serif;
+          margin-top: 2rem;
+
+          @media only screen and (max-width: 768px){
+            margin-left: 3rem;
+          }
+
+          a {
+            transition: all 0.2s ease-in-out;
+          }
+
+          &:hover a {
+            color: #fff;
+          }
+
+          &::before {
+            position: absolute;
+            content: "";
+            width: 46rem;
+            height: 5rem;
+            background-color: var(--primary-color);
+            clip-path: polygon(75% 0%, 80% 49%, 75% 100%, 0 100%, 0 49%, 0 0);
+            top: -1.2rem;
+            left: -20rem;
+            z-index: -1;
+          }
+        }
+
+        p {
+          width: 55rem;
+          font-size: 1.8rem;
+          text-align: justify;
+          line-height: 3rem;
+          margin-top: -2rem;
+          font-weight: 400;
+          color: #333;
+
+          @media only screen and (max-width: 768px){
+            text-align: left;
+            margin-left: 3.5rem;
+            width: 35rem;
+          }
+        }
+      }
+
+      .main-right {
+        width: 40%;
+        position: relative;
+
+        .img-container {
+          figure {
+            width: 40rem;
+            height: 30rem;
+            background-image: url("https://picsum.photos/400/300");
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -16rem;
+            left: -6rem;
+            clip-path: polygon(
+              75% 0%,
+              100% 50%,
+              75% 100%,
+              0% 100%,
+              25% 50%,
+              0% 0%
+            );
+
+            @media only screen and (max-width: 768px){
+              display: none;
+            }
+
+            &::before {
+              position: absolute;
+              content: "";
+              width: 40rem;
+              height: 30rem;
+              clip-path: polygon(
+                75% 0%,
+                100% 50%,
+                75% 100%,
+                0% 100%,
+                25% 50%,
+                0% 0%
+              );
+              background-color: var(--sec-color);
+              opacity: 0.3;
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              width: 40rem;
+              height: 30rem;
+              clip-path: polygon(
+                75% 0%,
+                100% 50%,
+                75% 100%,
+                0% 100%,
+                25% 50%,
+                0% 0%
+              );
+              background-color: var(--sec-color);
+              opacity: 0.4;
+              top: 0;
+              left: 35%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    h1 {
+      position: relative;
+      font-size: 3.5rem;
+      text-align: left;
+      margin-left: 15rem;
+      margin-top: 10rem;
+
+      @media only screen and (max-width: 768px){
+        text-align: center;
+        margin-left: 0;
+        font-size: 3.8rem;
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        background-color: var(--primary-color);
+        width: 8rem;
+        height: 0.8rem;
+        border-radius: 2rem;
+        bottom: 1rem;
+        z-index: -1;
+      }
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 80%;
+      margin: 0 auto;
+      height: 110rem;
+      margin-top: 4rem;
+
+      @media only screen and (max-width: 768px){
+        display: flex;
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: 2.7rem;
+        line-height: 3.5rem;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &:hover {
+          color: #555;
+        }
+      }
+      p {
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: #000;
+        line-height: 2.3rem;
+        margin-top: 3rem;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        clip-path: polygon(75% 0%, 80% 49%, 75% 100%, 0 100%, 0 49%, 0 0);
+        width: 15rem;
+
+        @media only screen and (max-width: 768px){
+          margin-bottom: 5rem;
+        }
+
+        a {
+          font-size: 1.7rem;
+          font-weight: 600;
+          font-family: "Josefin Sans", sans-serif;
+          margin-right: 2.5rem;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+
+      .info-div {
+        @include displayView;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 768px){
+        }
+
+        .date {
+          font-weight: 600;
+          font-size: 1.5rem;
+
+          @media only screen and (max-width: 768px){
+          }
+        }
+
+        .time {
+          font-weight: 600;
+          font-size: 1.5rem;
+          margin-right: 37rem;
+          color: #555;
+
+          @media only screen and (max-width: 768px){
+            margin-right: 0rem;
+          }
+        }
+      }
+
+      .first {
+        background-color: var(--color1);
+        padding: 0rem 2rem;
+      }
+      .second {
+        background-color: var(--color4);
+        padding: 0rem 2rem;
+      }
+      .third {
+        background-color: var(--color2);
+        padding: 0rem 2rem;
+      }
+      .fourth {
+        background-color: var(--color3);
+        padding: 0rem 2rem;
+      }
+      .fifth {
+        background-color: var(--color5);
+        padding: 0rem 2rem;
+      }
+      .sixth {
+        background-color: var(--color6);
+        padding: 0rem 2rem;
+      }
+    }
+  }
+
+  .subscribe {
+    //background-color: var(--color4);
+    text-align: center;
+    width: 92%;
+    h1 {
+      position: relative;
+      font-size: 3.5rem;
+      text-align: left;
+      margin-left: 15rem;
+      margin-top: 10rem;
+      text-transform: capitalize;
+      text-align: center;
+
+      &::before {
+        position: absolute;
+        content: "";
+        background-color: var(--primary-color);
+        width: 23rem;
+        height: 0.8rem;
+        border-radius: 2rem;
+        bottom: 1rem;
+        z-index: -1;
+      }
+    }
+
+    p {
+      font-size: 2rem;
+      margin-left: 15rem;
+      margin-top: -1.5rem;
+    }
+
+    .form-div {
+      // display: flex;
+      // justify-content: space-between;
+      // width: 80%;
+      // border: 2px solid red;
+      //margin: 0 auto;
+
+      form {
+        margin-left: 15rem;
+
+        label {
+          display: block;
+          font-size: 2rem;
+          margin-top: 3.5rem;
+          margin-bottom: 2rem;
+          text-align: left;
+          margin-left: 28.5rem;
+        }
+
+        input[type="text"] {
+          border: none;
+          outline: none;
+          width: 52rem;
+          margin-left: 2rem;
+          // box-shadow: 0px 4px 16px 2px rgba(146, 143, 143, 0.41);
+          // -webkit-box-shadow: 0px 4px 16px 2px rgba(146, 143, 143, 0.41);
+          // -moz-box-shadow: 0px 4px 16px 2px rgba(146, 143, 143, 0.41);
+          //border-radius: 0.5rem;
+          border: 1px solid #ccc;
+          border-bottom: 3px solid #ccc;
+          height: 4rem;
+          border-top-left-radius: 0.3rem;
+          border-top-right-radius: 0.3rem;
+        }
+
+        button {
+          background-color: var(--primary-color);
+          border: none;
+          outline: none;
+          font-size: 2rem;
+          font-weight: 600;
+          font-family: "Josefin Sans", sans-serif;
+          height: 4.5rem;
+          margin-left: 3rem;
+          clip-path: polygon(75% 0%, 80% 49%, 75% 100%, 0 100%, 0 49%, 0 0);
+          width: 20rem;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          a {
+            margin-left: -4rem;
+          }
+
+          &:hover a{
+            color: #fff;
+          }
+        }
+      }
+
+      img {
+        height: 12rem;
+        width: 22rem;
+      }
+    }
+  }
+
+  footer {
+    @media only screen and (max-width: 768px){
+      position: fixed;
+      bottom: 0;
+    }
+    .footer-top {
+      @include displayView;
+      flex-direction: column;
+      height: 20rem;
+      background-color: rgb(54, 54, 54);
+      margin-top: 5rem;
+      ul {
+        @include displayView;
+        justify-content: space-between;
+        width: 20%;
+        margin: 2.1rem auto;
+        margin-bottom: 0.5rem;
+
+        @media only screen and (max-width: 768px){
+          margin: 0 auto;
+          border: 2px solid red;
+        }
+
+        li {
+          transition: all 0.2s ease-in-out;
+
+          
+          a {
+            i {
+              font-size: 2.2rem;
+              background-color: #222;
+              border-radius: 50%;
+              width: 5rem;
+              height: 5rem;
+              //text-align: center;
+              display: grid;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+            }
+
+            
+          }
+
+          &:hover i{
+            background-color: #111;
+          }
+        }
+      }
+
+      p{
+        color: #fff;
+        font-size: 2.5rem;
+        font-weight: 200;
+        margin-left: 3rem;
+        margin-bottom: 4rem;
+        a{
+          text-transform: capitalize;
+          color: #fff;
+          font-size: 2.2rem;
+          font-weight: 300;
+          margin: 0 3rem;
+          transition: all 0.2s ease-in-out;
+
+          &:hover{
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+
+    .footer-bottom{
+      background-color: var(--primary-color);
+      height: 9rem;
+      margin-top: -2rem;
+
+      p{
+        font-size: 1.6rem;
+        @include displayView;
+        padding-top: 2rem;
+        margin: 0 auto;
+        pointer-events: none;
+      }
+
+      .two{
+        a{
+          margin: 0 2rem;
+          text-transform: capitalize;
+          transition: all 0.2s ease-in-out;
+          pointer-events: visible;
+          
+          &:hover{
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
